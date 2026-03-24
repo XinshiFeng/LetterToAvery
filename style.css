@@ -1,0 +1,163 @@
+/* ── reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── page ── */
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #fce8f0;
+  background-image: radial-gradient(#f5b8d0 1px, transparent 1px);
+  background-size: 26px 26px;
+  font-family: Lora, Georgia, serif;
+}
+
+/* ── scene ── */
+.scene {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  /* extra top padding gives the risen letter room to breathe without hitting the title */
+  padding: 5rem 1rem 3rem;
+}
+
+.page-title {
+  font-family: Lora, Georgia, serif;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  font-weight: 600;
+  color: #a0476a;
+  letter-spacing: 0.04em;
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.hint {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c4728f;
+  transition: opacity 0.35s ease;
+}
+.hint.hidden { opacity: 0; }
+
+/* ── envelope ── */
+.envelope {
+  position: relative;
+  width: min(460px, calc(100vw - 2.5rem));
+  aspect-ratio: 3 / 2;
+  cursor: pointer;
+  perspective: 900px;
+}
+
+/* envelope body */
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f7bdd1;
+  border-radius: 6px 6px 10px 10px;
+  box-shadow:
+    0 4px 0 #e898b4,
+    0 12px 40px rgb(180 60 100 / 18%);
+}
+
+/* ── crease marks ── */
+.env-crease {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+.env-crease-left {
+  inset: 0 50% 0 0;
+  background: linear-gradient(to bottom right, transparent 49.5%, #eda8c0 49.5%, #eda8c0 50.5%, transparent 50.5%);
+}
+.env-crease-right {
+  inset: 0 0 0 50%;
+  background: linear-gradient(to bottom left, transparent 49.5%, #eda8c0 49.5%, #eda8c0 50.5%, transparent 50.5%);
+}
+.env-crease-bottom {
+  inset: 50% 0 0;
+  background: linear-gradient(to top right, transparent 49.5%, #eda8c0 49.5%, #eda8c0 50.5%, transparent 50.5%);
+}
+
+/* ── letter ── */
+.letter {
+  position: absolute;
+  left: 7%;
+  width: 86%;
+  /* sits just inside the envelope body */
+  bottom: 5%;
+  z-index: 2;
+  background: #fffdf8;
+  border-radius: 4px;
+  border: 1px solid #f0ddd7;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+  padding: 1.1rem 1.2rem 0.9rem;
+
+  /* hidden state: tucked inside envelope */
+  transform: translateY(0);
+  opacity: 0;
+  transition:
+    transform 0.65s cubic-bezier(0.34, 1.15, 0.64, 1),
+    opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* open state: rises above envelope */
+.envelope.open .letter {
+  transform: translateY(-48%);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.letter-body {
+  font-size: clamp(0.82rem, 2.2vw, 0.95rem);
+  line-height: 1.85;
+  color: #3a2530;
+  min-height: 5em;
+  white-space: pre-wrap;
+}
+
+.close-btn {
+  display: block;
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.78rem;
+  color: #c4728f;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  padding: 0;
+  transition: color 0.2s;
+}
+.close-btn:hover { color: #a0476a; }
+
+/* ── flap ── */
+.env-flap {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 54%;
+  /* triangle pointing downward */
+  clip-path: polygon(0 0, 100% 0, 50% 88%);
+  background: #f2a8c4;
+  border-radius: 6px 6px 0 0;
+  transform-origin: top center;
+  /* 3-D flip uses preserve-3d on parent */
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 4;
+  box-shadow: 0 3px 8px rgb(180 60 100 / 12%);
+}
+
+/* when open, flap folds back and drops behind the letter */
+.envelope.open .env-flap {
+  transform: rotateX(-175deg);
+  z-index: 1;
+}

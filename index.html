@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Letter For You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="scene">
+      <h1 class="page-title">写给 Avery 的一封信</h1>
+      <p class="hint" id="hint">click to open</p>
+
+      <div class="envelope" id="envelope">
+        <!-- decorative side creases -->
+        <div class="env-crease env-crease-left"></div>
+        <div class="env-crease env-crease-right"></div>
+        <div class="env-crease env-crease-bottom"></div>
+
+        <!-- letter -->
+        <div class="letter" id="letter">
+          <p class="letter-body" id="letterBody">
+            <!-- your words go here -->
+             Hey Avery,
+             遇见你真的是意料之外的事
+             原本只是想找个共同话题的人
+          </p>
+          <button class="close-btn" id="closeBtn" aria-label="Close envelope">
+            fold back ↩
+          </button>
+        </div>
+
+        <!-- flap (rendered last so it covers the letter when closed) -->
+        <div class="env-flap" id="envFlap"></div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
