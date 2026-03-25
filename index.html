@@ -17,14 +17,17 @@
     <div class="gate" id="gate">
       <div class="gate-box">
         <p class="gate-label"></p>
-        <input
-          class="gate-input"
-          id="gateInput"
-          type="password"
-          placeholder="enter the password"
-          autocomplete="off"
-          autofocus
-        />
+        <div class="gate-row">
+          <input
+            class="gate-input"
+            id="gateInput"
+            type="password"
+            placeholder="enter the password"
+            autocomplete="off"
+            autofocus
+          />
+          <button class="gate-submit" id="gateSubmit" aria-label="Submit">→</button>
+        </div>
         <p class="gate-error hidden" id="gateError">wrong password, try again</p>
       </div>
     </div>

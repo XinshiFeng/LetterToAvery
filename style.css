@@ -39,6 +39,23 @@
   transition: border-color 0.2s;
 }
 .gate-input:focus { border-color: #a0476a; }
+
+.gate-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.gate-submit {
+  font-size: 1rem;
+  padding: 0.52rem 0.9rem;
+  border-radius: 999px;
+  border: 1.5px solid #f2a8c4;
+  background: #f7bdd1;
+  color: #3a2530;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.gate-submit:hover { background: #f2a8c4; }
 .gate-error {
   font-size: 0.8rem;
   color: #c0476a;
