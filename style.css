@@ -96,10 +96,7 @@ body {
 }
 
 .envelope.open .letter {
-<<<<<<< HEAD
   transform: translateY(20%);
-=======
->>>>>>> b7338eb8bd4d14bf6f7e10ac30a47073ebf1a745
   opacity: 1;
   pointer-events: auto;
 }
