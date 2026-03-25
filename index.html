@@ -13,45 +13,41 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- password gate -->
-    <div class="gate" id="gate">
-      <div class="gate-box">
-        <p class="gate-label"></p>
-        <div class="gate-row">
-          <input
-            class="gate-input"
-            id="gateInput"
-            type="password"
-            placeholder="enter the password"
-            autocomplete="off"
-            autofocus
-          />
-          <button class="gate-submit" id="gateSubmit" aria-label="Submit">→</button>
-        </div>
-        <p class="gate-error hidden" id="gateError">wrong password, try again</p>
-      </div>
-    </div>
-
     <div class="scene">
       <h1 class="page-title">写给 Avery 的一封信</h1>
       <p class="hint" id="hint">click to open</p>
 
       <div class="envelope" id="envelope">
-        <!-- decorative side creases -->
         <div class="env-crease env-crease-left"></div>
         <div class="env-crease env-crease-right"></div>
         <div class="env-crease env-crease-bottom"></div>
 
-        <!-- letter -->
         <div class="letter" id="letter">
-          <p class="letter-body" id="letterBody"></p>
-          <button class="close-btn" id="closeBtn" aria-label="Close envelope">
-            fold back ↩
-          </button>
+          <p class="letter-body">Hey Avery，
+
+写这封信的时候我想了很久，不是不知道该说什么，而是想说的太多，怕说不清楚。
+
+说实话，这个活动刚开始我确实没抱什么期待，就当交个朋友，have fun就好。但后来跟你聊天的时候，我发现一切都变得不太一样了。
+
+我们聊音乐品味，聊你开帆船、骑马的经历，也聊到彼此过去的事情。你告诉我你没谈过恋爱，也跟我说你看到消息都会第一时间回复，除非在上课或者真的有事。刚加上微信那天你说你在Walmart，特意解释回复会断断续续——那个瞬间我挺触动的，觉得你是一个很尊重别人、也很认真的人。
+
+你还时不时给我发脑筋急转弯、讲笑话。电话聊天的时候，虽然具体聊了什么我记不太清了，但那种聊得很自然、很舒服的感觉，我一直都记得。
+
+这几天下来，我发现自己的生活悄悄变了。以前我十一点多就睡了，但跟你聊天的时候，时间一眨眼就能到一两点。更有意思的是，平时的我倒头就能睡着，现在却要翻来覆去很久才能入睡——脑子里会反复想着我们聊天的话。
+
+第二天早上醒来，如果看到你的消息，我心里会暖暖的，能高兴一整天。虽然我知道我们现在还没有什么关系，但还是会有那种错觉。
+
+前两天我去健身，碰到朋友，我说最近健身都没什么动力。以前健身是我一天里最期待的时间，但现在——平时就已经很快乐了。我朋友说我脸上的笑容就没下去过，我自己都没注意到。
+
+在这两周的相处中，我对你肯定有好感，这是真的。但我更想认真地、慢慢地去了解你。了解你的想法——你怎么看异地恋？你觉得两个人在一起是找契合的更重要，还是互补的更重要？或者说，我也在想过，你参加这个活动也许也只是想have fun。
+
+虽然我们还没见过面，但你给我的感觉，像是一个很安静的春天——林间小路上，樱花从天上飘下来，而你站在中间。
+
+我不知道你是什么想法，但我很想有更多了解你的机会。如果你愿意，我们可以慢慢来。</p>
+          <button class="close-btn" id="closeBtn">fold back ↩</button>
         </div>
 
-        <!-- flap (rendered last so it covers the letter when closed) -->
-        <div class="env-flap" id="envFlap"></div>
+        <div class="env-flap"></div>
       </div>
     </div>
 
