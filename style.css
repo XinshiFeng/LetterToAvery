@@ -1,3 +1,58 @@
+.hidden { display: none; }
+
+/* ── password gate ── */
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  background: #fce8f0;
+  background-image: radial-gradient(#f5b8d0 1px, transparent 1px);
+  background-size: 26px 26px;
+  transition: opacity 0.5s ease;
+}
+.gate-out { opacity: 0; pointer-events: none; }
+
+.gate-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+.gate-label {
+  font-family: Lora, Georgia, serif;
+  font-size: clamp(1rem, 3.5vw, 1.3rem);
+  color: #a0476a;
+}
+.gate-input {
+  font-family: Lora, Georgia, serif;
+  font-size: 1rem;
+  padding: 0.55rem 1rem;
+  border: 1.5px solid #f2a8c4;
+  border-radius: 999px;
+  background: #fffdf8;
+  color: #3a2530;
+  text-align: center;
+  outline: none;
+  width: min(260px, 80vw);
+  transition: border-color 0.2s;
+}
+.gate-input:focus { border-color: #a0476a; }
+.gate-error {
+  font-size: 0.8rem;
+  color: #c0476a;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-5px); }
+  80%       { transform: translateX(5px); }
+}
+.shake { animation: shake 0.4s ease; }
+
 /* ── reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -30,12 +85,7 @@ body {
   font-weight: 600;
   color: #a0476a;
   letter-spacing: 0.04em;
-  position: fixed;
-  top: 5rem;
-  left: 50%;
-  transform: translateX(-50%);
   white-space: nowrap;
-  z-index: 10;
 }
 
 .hint {
@@ -45,7 +95,7 @@ body {
   color: #c4728f;
   transition: opacity 0.35s ease;
 }
-.hint.hidden { opacity: 0; }
+.hint.hidden { opacity: 0; display: block; }
 
 /* ── envelope ── */
 .envelope {
@@ -90,8 +140,8 @@ body {
 /* ── letter ── */
 .letter {
   position: absolute;
-  left: 7%;
-  width: 86%;
+  left: 3%;
+  width: 94%;
   /* sits just inside the envelope body */
   bottom: 5%;
   z-index: 2;
@@ -99,7 +149,10 @@ body {
   border-radius: 4px;
   border: 1px solid #f0ddd7;
   box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
-  padding: 1.1rem 1.2rem 0.9rem;
+  padding: 1.3rem 1.5rem 1.1rem;
+  max-height: min(78vh, 640px);
+  display: flex;
+  flex-direction: column;
 
   /* hidden state: tucked inside envelope */
   transform: translateY(0);
@@ -112,9 +165,9 @@ body {
 
 /* open state: rises above envelope */
 .envelope.open .letter {
-  transform: translateY(-48%);
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(+10%);
 }
 
 .letter-body {
@@ -122,7 +175,11 @@ body {
   line-height: 1.85;
   color: #3a2530;
   min-height: 5em;
+  max-height: min(70vh, 620px);
+  overflow: auto;
   white-space: pre-wrap;
+  padding-right: 0.35rem;
+  text-align: left;
 }
 
 .close-btn {

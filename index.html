@@ -13,6 +13,22 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- password gate -->
+    <div class="gate" id="gate">
+      <div class="gate-box">
+        <p class="gate-label"></p>
+        <input
+          class="gate-input"
+          id="gateInput"
+          type="password"
+          placeholder="enter the password"
+          autocomplete="off"
+          autofocus
+        />
+        <p class="gate-error hidden" id="gateError">wrong password, try again</p>
+      </div>
+    </div>
+
     <div class="scene">
       <h1 class="page-title">写给 Avery 的一封信</h1>
       <p class="hint" id="hint">click to open</p>
@@ -25,12 +41,7 @@
 
         <!-- letter -->
         <div class="letter" id="letter">
-          <p class="letter-body" id="letterBody">
-            <!-- your words go here -->
-             Hey Avery,
-             遇见你真的是意料之外的事
-             原本只是想找个共同话题的人
-          </p>
+          <p class="letter-body" id="letterBody"></p>
           <button class="close-btn" id="closeBtn" aria-label="Close envelope">
             fold back ↩
           </button>
