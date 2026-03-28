@@ -50,7 +50,7 @@ body {
 /* ── envelope ── */
 .envelope {
   position: relative;
-  width: min(460px, calc(100vw - 2.5rem));
+  width: min(580px, calc(100vw - 2.5rem));
   aspect-ratio: 3 / 2;
   cursor: pointer;
   perspective: 900px;
@@ -96,7 +96,7 @@ body {
   border: 1px solid #f0ddd7;
   box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
   padding: 1.3rem 1.5rem 1.1rem;
-  max-height: min(55vh, 480px);
+  max-height: min(65vh, 580px);
   display: flex;
   flex-direction: column;
   /* lined paper effect */
@@ -116,7 +116,7 @@ body {
 }
 
 .envelope.open .letter {
-  transform: translateY(-15%);
+  transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
@@ -126,7 +126,7 @@ body {
   font-size: clamp(0.82rem, 2.2vw, 0.93rem);
   line-height: 1.85;
   color: #3a2530;
-  max-height: min(48vh, 420px);
+  max-height: min(58vh, 500px);
   overflow-y: auto;
   white-space: pre-wrap;
   padding-right: 0.4rem;
